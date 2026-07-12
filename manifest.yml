@@ -1,20 +1,14 @@
-lzc-sdk-version: "0.1"
-name: VoAPI
-package: cloud.lazycat.app.voapi
-version: 0.10.0
-description: 全新的高颜值/高性能的AI模型接口管理与分发系统，仅供个人学习使用。
-homepage: https://github.com/VoAPI/VoAPI
-author: VoAPI
 application:
   subdomain: voapi
   background_task: true
   public_path:
     - /
-  routes:
-    - /=http://voapi:3000/
+  upstreams:
+    - location: /
+      backend: http://voapi:3000/
 services:
   voapi:
-    container_name: voapi
+    # upstream: voapi/voapi:v1.2.0
     image: docker.1ms.run/voapi/voapi:latest
     environment:
       - TZ=Asia/Shanghai
@@ -25,7 +19,7 @@ services:
       - /lzcapp/var/logs:/app/logs
     depends_on:
       - redis
-    health_check:
+    healthcheck:
       test:
         - CMD-SHELL
         - "wget -q -O - http://localhost:3000/api/status | grep -o '\"success\":\\s*true' | awk -F: '{print $2}'"
@@ -33,13 +27,8 @@ services:
 
   redis:
     image: docker.1ms.run/redis:latest
-    health_check:
+    healthcheck:
       test:
         - CMD-SHELL
         - redis-cli ping
       start_period: 30s
-
-unsupported_platforms:
-  - ios
-  - android
-  - tvos

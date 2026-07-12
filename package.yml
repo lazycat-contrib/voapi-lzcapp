@@ -1,0 +1,21 @@
+package: cloud.lazycat.app.voapi
+version: 0.10.0
+name: VoAPI
+description: "全新的高颜值、高性能 AI 模型接口管理与分发系统，仅供个人学习使用。"
+min_os_version: 1.5.0
+homepage: https://github.com/VoAPI/VoAPI
+author: VoAPI
+locales:
+  en:
+    name: "VoAPI"
+    description: "A modern, high-performance AI model API management and distribution system for personal learning."
+  zh:
+    name: "VoAPI"
+    description: "全新的高颜值、高性能 AI 模型接口管理与分发系统，仅供个人学习使用。"
+unsupported_platforms:
+  - ios
+  - android
+  - tvos
+permissions:
+  required:
+    - net.internet
