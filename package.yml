@@ -1,5 +1,5 @@
 package: cloud.lazycat.app.voapi
-version: 0.10.0
+version: 1.2.0
 name: VoAPI
 description: "全新的高颜值、高性能 AI 模型接口管理与分发系统，仅供个人学习使用。"
 min_os_version: 1.5.0
