@@ -26,7 +26,7 @@ services:
       start_period: 90s
   redis:
     # upstream: redis:latest
-    image: registry.lazycat.cloud/czyt/library/redis:a570833824bde283
+    image: registry.lazycat.cloud/czyt/library/redis:33dfa12c2eee90ed
     healthcheck:
       test:
         - CMD-SHELL
